@@ -1,0 +1,13 @@
+<form [formGroup]="orderForm" class="form-group" (submit)="salvar()" >
+  <div class="row">
+    <div class="col-lg-6">
+      <label for="">Digite a ocupação:</label><br>
+      <input formControlName="title" type="text" class="form-control">
+    </div>
+    <div class=" col-lg-6">
+      <label for=""> Descrição</label>
+      <textarea formControlName="description" class="form-control" id="" cols="30" rows="10"></textarea>
+      <button type="submit" class="btn btn-outline-primary">Salvar</button>
+    </div>
+  </div>
+</form>

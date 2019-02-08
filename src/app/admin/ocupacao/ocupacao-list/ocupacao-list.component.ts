@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { OcupacaoService } from '../ocupacao.service';
+import { Ocupacao } from '../ocupacao';
 
 @Component({
   selector: 'app-ocupacao-list',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OcupacaoListComponent implements OnInit {
 
-  constructor() { }
+  ocupacaos: Ocupacao[];
+
+  constructor(private service: OcupacaoService) { }
 
   ngOnInit() {
+    this.service.listar()
+        .subscribe(response => {
+          console.log(response);
+          this.ocupacaos = response;
+    });
   }
 
 }
