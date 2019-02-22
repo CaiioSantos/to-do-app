@@ -1,3 +1,17 @@
-<p>
-  ocupacao-update works!
-</p>
+<div class="container">
+    <form [formGroup]="orderForm" class="form-group" (ngSubmit)="update()">
+        <div class="row">
+          <div class="col-lg-6">
+            <label for="">Digite a ocupação:</label><br>
+            <input formControlName="title" type="text" class="form-control">
+          </div>
+        </div>
+        <div class="row">
+          <div class=" col-lg-6">
+            <label for=""> Descrição</label>
+            <textarea formControlName="description" class="form-control" id="" cols="30" rows="10"></textarea>
+            <input class="btn btn-primary mt-1" type="submit" value="Salvar">
+          </div>
+        </div>
+      </form>
+</div>

@@ -5,12 +5,13 @@ import { OcupacaoUpdateComponent } from './admin/ocupacao/ocupacao-update/ocupac
 import { OcupacaoListComponent } from './admin/ocupacao/ocupacao-list/ocupacao-list.component';
 import { AboutComponent } from './admin/about/about/about.component';
 import { OcupacaoCadastroComponent } from './admin/ocupacao/ocupacao-cadastro/ocupacao-cadastro.component';
+import { OcupacaoMostrarComponent } from './admin/ocupacao/ocupacao-mostrar/ocupacao-mostrar.component';
 
 const routes: Routes = [
-  {path: '', component: LayoutComponent },
     {path: 'ocupacao/cadastro', component: OcupacaoCadastroComponent},
     {path: 'ocupacao/lista', component: OcupacaoListComponent},
-    {path: 'ocupacao/editar', component: OcupacaoUpdateComponent},
+    {path: 'ocupacao/editar/:id', component: OcupacaoUpdateComponent},
+    {path: 'ocupacao/mostrar/:id', component: OcupacaoMostrarComponent},
     {path: 'sobre', component: AboutComponent }
 ];
 

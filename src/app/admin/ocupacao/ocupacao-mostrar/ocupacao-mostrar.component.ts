@@ -1,4 +1,8 @@
+import { Ocupacao } from './../ocupacao';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { OcupacaoService } from '../ocupacao.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-ocupacao-mostrar',
@@ -7,9 +11,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OcupacaoMostrarComponent implements OnInit {
 
-  constructor() { }
+  ocupacao: Ocupacao;
+  urlId: number;
 
-  ngOnInit() {
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private ocupacaoService: OcupacaoService
+  ) {
+    this.urlId = this.activatedRoute.snapshot.params['id'];
   }
 
+  ngOnInit() {
+    this.ocupacaoService.mostrar(this.urlId)
+    .subscribe(
+      res => {this.ocupacao = res;
+      console.log(this.ocupacao);
+      }
+      );
+
+  }
 }

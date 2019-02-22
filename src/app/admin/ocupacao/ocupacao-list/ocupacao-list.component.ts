@@ -16,7 +16,6 @@ export class OcupacaoListComponent implements OnInit {
   ngOnInit() {
     this.service.listar()
         .subscribe(response => {
-          console.log(response);
           this.ocupacaos = response;
     });
   }

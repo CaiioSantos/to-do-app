@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 export class OcupacaoService {
 
   private urlApi: string;
-  private readonly API = `${environment.API}ocupacao`;
+  private readonly API = `${environment.API}/tarefa`;
 
   constructor(
     private httpClient: HttpClient
@@ -17,11 +17,15 @@ export class OcupacaoService {
   }
 
   listar() {
-    return this.httpClient.get<Ocupacao[]>('http://127.0.0.1:8000/api/tarefa');
+    return this.httpClient.get<Ocupacao[]>(this.API);
   }
   create(ocupar: Ocupacao) {
     return this.httpClient.post(this.API, ocupar);
   }
+  update() {
 
-
+  }
+  mostrar(id: number) {
+    return this.httpClient.get<Ocupacao>(`${this.API}/${id}`);
+  }
 }
