@@ -22,10 +22,13 @@ export class OcupacaoService {
   create(ocupar: Ocupacao) {
     return this.httpClient.post(this.API, ocupar);
   }
-  update() {
-
+  update(id: number , ocupacao: Ocupacao) {
+    return this.httpClient.put(`${this.API}/${id}`, ocupacao);
   }
   mostrar(id: number) {
     return this.httpClient.get<Ocupacao>(`${this.API}/${id}`);
+  }
+  delete(id: number) {
+    return this.httpClient.delete<Ocupacao>(`${this.API}/${id}`);
   }
 }

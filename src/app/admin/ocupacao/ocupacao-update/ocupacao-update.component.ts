@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { Ocupacao } from '../ocupacao';
 import { Router, ActivatedRoute } from '@angular/router';
 import { OcupacaoService } from '../ocupacao.service';
+import { OcupacaoMostrarComponent } from '../ocupacao-mostrar/ocupacao-mostrar.component';
 @Component({
   selector: 'app-ocupacao-update',
   templateUrl: './ocupacao-update.component.html',
@@ -11,7 +12,7 @@ import { OcupacaoService } from '../ocupacao.service';
 export class OcupacaoUpdateComponent implements OnInit {
 
   orderform: FormGroup;
-  idUrl: number;
+  urlId: number;
   ocupacao: Ocupacao;
 
   constructor(
@@ -20,7 +21,7 @@ export class OcupacaoUpdateComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private ocupacaoService: OcupacaoService
   ) {
-    this.idUrl = this.activatedRoute.snapshot.params['id'];
+    this.urlId = this.activatedRoute.snapshot.params['id'];
   }
 
   ngOnInit() {
@@ -28,8 +29,9 @@ export class OcupacaoUpdateComponent implements OnInit {
       title: [null],
       description: [null]
     });
-    this.ocupacaoService.mostrar(this.idUrl)
-      .subscribe( res => {
+    this.ocupacaoService.mostrar(this.urlId)
+      .subscribe(res => {
+
         this.ocupacao = res;
 
         this.orderform.patchValue({
@@ -37,13 +39,14 @@ export class OcupacaoUpdateComponent implements OnInit {
           description: this.ocupacao.description
         });
       });
-  }
-  editar () {
-    const dataform = this.orderform.getRawValue() as Ocupacao;
 
-    this.ocupacaoService.update(this.idUrl, dataform)
-      .subscribe( es => {
-        this.router.navigate(['ocupacao/lista'])
+  }
+  editar() {
+    const dataForm = this.orderform.getRawValue() as Ocupacao;
+
+    this.ocupacaoService.update(this.urlId, dataForm)
+      .subscribe( res => {
+        this.router.navigate(['/ocupacao/lista']);
       });
   }
 

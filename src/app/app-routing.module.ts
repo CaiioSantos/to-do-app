@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LayoutComponent } from './admin/layout/layout/layout.component';
 import { OcupacaoUpdateComponent } from './admin/ocupacao/ocupacao-update/ocupacao-update.component';
 import { OcupacaoListComponent } from './admin/ocupacao/ocupacao-list/ocupacao-list.component';
 import { AboutComponent } from './admin/about/about/about.component';

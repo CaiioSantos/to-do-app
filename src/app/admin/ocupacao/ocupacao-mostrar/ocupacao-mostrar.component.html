@@ -21,6 +21,7 @@
           </div>
     </div>
     <button type="button" class="btn btn-outline-info" [routerLink]="['/ocupacao/lista']" >Voltar</button>
-    <button type="button" class="btn btn-outline-warning m-1">Editar</button>
+    <button type="button" class="btn btn-outline-warning m-1" [routerLink]="['/ocupacao/editar', ocupacao.id]">Editar</button>
+    <button type="button" class="btn btn-outline-danger m-1" (click)="delete(ocupacao.id)">Excluir</button>
 
 </div>
